@@ -1,3 +1,5 @@
+import styles from "./styles/main.css";
+
 const {
   Links,
   LiveReload,
@@ -6,7 +8,6 @@ const {
   Scripts,
   ScrollRestoration,
 } = require("@remix-run/react");
-
 export const meta = () => ({
   charset: "utf-8",
   title: "New Remix App",
@@ -28,4 +29,8 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
 }
