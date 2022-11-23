@@ -1,3 +1,4 @@
+import MainNavigation from "~/components/MainNavigation";
 import styles from "~/styles/main.css";
 
 const {
@@ -22,6 +23,9 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <header>
+          <MainNavigation />
+        </header>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
