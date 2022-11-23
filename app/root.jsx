@@ -1,5 +1,5 @@
-import MainNavigation from "~/components/MainNavigation";
-import styles from "~/styles/main.css";
+import MainNavigation from "./components/MainNavigation";
+import styles from "./styles/main.css";
 
 const {
   Links,
