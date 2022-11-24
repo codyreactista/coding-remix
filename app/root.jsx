@@ -1,3 +1,5 @@
+import sharedStyles from "./styles/shared.css";
+
 const {
   Links,
   LiveReload,
@@ -28,4 +30,8 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export function links() {
+  return [{ rel: "stylesheet", href: sharedStyles }];
 }
