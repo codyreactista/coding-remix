@@ -6,6 +6,7 @@ const {
   Scripts,
   ScrollRestoration,
 } = require("@remix-run/react");
+
 export const meta = () => ({
   charset: "utf-8",
   title: "New Remix App",
