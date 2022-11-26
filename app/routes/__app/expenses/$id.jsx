@@ -1,9 +1,12 @@
 // /expenses/<some-id> => /expenses/expense-1, /expenses/e-1
 
+import { redirect } from "@remix-run/node";
 import { useNavigate } from "@remix-run/react";
 
 import ExpenseForm from "~/components/expenses/ExpenseForm";
 import Modal from "~/components/util/Modal";
+import { updateExpense } from "~/data/expenses.server";
+import { validateExpenseInput } from "~/data/validation.server";
 
 export default function UpdateExpensesPage() {
   const navigate = useNavigate();
@@ -26,3 +29,19 @@ export default function UpdateExpensesPage() {
 
 //   return expense;
 // }
+
+export async function action({ params, request }) {
+  const expenseId = params.id;
+  const formData = await request.formData();
+  const expenseData = Object.fromEntries(formData);
+
+  try {
+    validateExpenseInput(expenseData);
+  } catch (error) {
+    return error;
+  }
+
+  await updateExpense(expenseId, expenseData);
+
+  return redirect("/expenses");
+}
