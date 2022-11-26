@@ -20,6 +20,11 @@ function ExpenseForm() {
   ).data;
   const expenseData = expenses.find((expense) => expense.id === params.id);
 
+  if (params.id && !expenseData) {
+    // throw new Response();
+    return <p>Invalid expense id.</p>;
+  }
+
   const defaultValues = expenseData
     ? {
         title: expenseData.title,
