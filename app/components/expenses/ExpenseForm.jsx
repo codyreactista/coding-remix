@@ -2,7 +2,8 @@ import {
   Form,
   Link,
   useActionData,
-  useLoaderData,
+  useMatches,
+  useParams,
   useTransition as useNavigation,
 } from "@remix-run/react";
 
@@ -11,7 +12,13 @@ function ExpenseForm() {
 
   const validationErrors = useActionData();
   const navigation = useNavigation();
-  const expenseData = useLoaderData();
+  // const expenseData = useLoaderData();
+  const params = useParams();
+  const matches = useMatches();
+  const expenses = matches.find(
+    (match) => match.id === "routes/__app/expenses"
+  ).data;
+  const expenseData = expenses.find((expense) => expense.id === params.id);
 
   const defaultValues = expenseData
     ? {
