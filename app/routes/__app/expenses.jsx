@@ -21,7 +21,7 @@ export default function ExpensesLayout() {
             <FaPlus />
             <span>Add Expense</span>
           </Link>
-          <a href="/expenses/raw">
+          <a href="/expenses/raw" target="_blank">
             <FaDownload />
             <span>Load Raw Data</span>
           </a>
@@ -41,9 +41,9 @@ export default function ExpensesLayout() {
 }
 
 export async function loader({ request }) {
-  await requireUserSession(request);
+  const userId = await requireUserSession(request);
 
-  const expenses = await getExpenses();
+  const expenses = await getExpenses(userId);
   return expenses;
 
   // if (!expenses || expenses.length === 0) {
