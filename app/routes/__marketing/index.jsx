@@ -45,3 +45,10 @@ export default function Index() {
     </main>
   );
 }
+
+export function meta() {
+  return {
+    title: "RemixExpenses - The Complete App",
+    description: "Manage your expenses with ease.",
+  };
+}
