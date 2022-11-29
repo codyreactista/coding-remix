@@ -17,5 +17,5 @@
     },
     "noEmit": true
   },
-  "exclude": ["node_modules", "build", ".cache", "public/build"]
+  "exclude": ["node_modules", ".cache", "public/build"]
 }

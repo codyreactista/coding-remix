@@ -28,7 +28,7 @@ export async function action({ request }) {
   const userId = await requireUserSession(request);
 
   const formData = await request.formData();
-  const expenseData = formData && Object.fromEntries(formData);
+  const expenseData = Object.fromEntries(formData);
 
   try {
     validateExpenseInput(expenseData);
