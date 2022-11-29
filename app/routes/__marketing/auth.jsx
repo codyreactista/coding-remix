@@ -12,7 +12,7 @@ export async function action({ request }) {
   const authMode = searchParams.get("mode") || "login";
 
   const formData = await request.formData();
-  const credentials = Object.fromEntries(formData);
+  const credentials = formData ?? Object.fromEntries(formData);
 
   try {
     validateCredentials(credentials);

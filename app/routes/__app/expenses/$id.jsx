@@ -35,7 +35,7 @@ export async function action({ params, request }) {
 
   if (request.method === "PATCH") {
     const formData = await request.formData();
-    const expenseData = Object.fromEntries(formData);
+    const expenseData = formData ?? Object.fromEntries(formData);
 
     try {
       validateExpenseInput(expenseData);
